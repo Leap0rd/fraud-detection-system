@@ -161,3 +161,18 @@ print("False Alert Rate on Legit Data:", round(false_alert_rate * 100, 2), "%")
 
 # else:
 #     print("\nNo labeled test file found. Supervised evaluation skipped.")
+
+# -----------------------------
+# SUMMARY
+# -----------------------------
+# 1. Load legitimate transactions from CSV and drop fraud labels.
+# 2. Convert Timestamp to numeric features: Hour, DayOfWeek, DayOfMonth.
+# 3. Define categorical and numerical feature sets.
+# 4. Build a preprocessing pipeline that one-hot encodes categorical fields
+#    and scales numerical fields, then save the preprocessor.
+# 5. Train an autoencoder on the preprocessed legitimate transaction data.
+# 6. Compute per-user reconstruction error thresholds at the 95th percentile.
+# 7. Compute per-category thresholds as the median of per-user thresholds.
+# 8. Save thresholds and perform unsupervised evaluation using reconstruction error
+#    statistics and false alert rate on legit data.
+# 9. Optional supervised evaluation is provided for labeled test data if available.
